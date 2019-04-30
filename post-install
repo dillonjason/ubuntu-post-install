@@ -1,0 +1,26 @@
+#!/bin/bash
+
+apt update
+apt upgrade -y
+
+apt install -y git nodejs curl docker.io gnome-tweak-tool vim
+apt remove -y --purge libreoffice* aisleriot gnome-mahjongg gnome-mines gnome-sudoku  
+
+# Chrome
+wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+dpkg -i google-chrome-stable_current_amd64.deb
+
+# Start docker on boot
+systemctl start docker
+systemctl enable docker
+
+# Git config
+git config --global user.name "Dillon Jason"
+git config --global user.email "some.email@domain.com"
+
+# NVM install
+wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
+
+snap install --classic code
+snap install --classic slack
+snap install postman
