@@ -1,14 +1,18 @@
 #!/bin/bash
 
+add-apt-repository -u ppa:snwh/ppa
+apt-add-repository ppa:tista/adapta
+
 apt update
 apt upgrade -y
 
-apt install -y git nodejs curl docker.io gnome-tweak-tool vim
+apt install -y git nodejs curl docker.io gnome-tweak-tool vim paper-icon-theme adapta-gtk-theme
 apt remove -y --purge libreoffice* aisleriot gnome-mahjongg gnome-mines gnome-sudoku  
 
 # Chrome
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 dpkg -i google-chrome-stable_current_amd64.deb
+rm google-chrome-stable_current_amd64.deb
 
 # Start docker on boot
 systemctl start docker
